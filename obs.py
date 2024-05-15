@@ -69,6 +69,8 @@ class NivelacionGeodesica:
                         if sube_o_baja > 0:
                             cota_vi = cota_ini + abs(sube_o_baja)
                         self.todos.append([vi_nombre, sube_o_baja, cota_vi])
+                    else:
+                        self.todos.append([vi_nombre, sube_o_baja])
             estacion = input("Inserta El Nombre De La Estacion: ")
             vista_mas = float(input("V+: "))
             vista_menos = float(input("V-: "))
