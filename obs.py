@@ -9,9 +9,9 @@ class NivelacionGeodesica:
     def nivelacion_instrumental(self):
         n_est = int(input("Inserta El Numero De Estaciones: "))
         pt1 = input("Inserta El Nombre Del Punto 1: ")
-        vista_mas = float(input("V+: "))
-        cota_ini = float(input("Inserta La Cota Del Punto: "))
-        hi = cota_ini + vista_mas
+        vista_mas = round(float(input("V+: ")), 6)
+        cota_ini = round(float(input("Inserta La Cota Del Punto: ")), 6)
+        hi = round(cota_ini + vista_mas, 6)
         self.todos = [[pt1, cota_ini]]
         self.ejex = [0]
         self.ejey = [cota_ini]
@@ -22,24 +22,24 @@ class NivelacionGeodesica:
                 num_vi = int(input("¿Cuantas VI Tienes?: "))
                 for _ in range(num_vi):
                     vi_nombre = input("Inserta El Nombre De La VI: ")
-                    vi_valor = float(input("Inserta el valor de VI: "))
-                    cota_vi = hi - vi_valor
+                    vi_valor = round(float(input("Inserta el valor de VI: ")), 6)
+                    cota_vi = round(hi - vi_valor, 6)
                     self.todos.append([vi_nombre, cota_vi])
             estacion = input("Inserta El Nombre Del Punto: ")
-            vista_mas = float(input("V+: "))
-            vista_menos = float(input("V-: "))
-            cota_este = hi - vista_menos
-            hi_este = cota_este + vista_mas
-            hi = hi_este
+            vista_mas = round(float(input("V+: ")), 6)
+            vista_menos = round(float(input("V-: ")), 6)
+            cota_este = round(hi - vista_menos, 6)
+            hi_este = round(cota_este + vista_mas, 6)
+            hi = round(hi_este, 6)
             self.todos.append([estacion, cota_este])
-            distancia = float(input("Inserte la Distancia entre estas dos estaciones: "))
-            calculada = distancia + self.ejex[-1]
+            distancia = round(float(input("Inserte la Distancia entre estas dos estaciones: ")), 6)
+            calculada = round(distancia + self.ejex[-1], 6)
             self.ejex.append(calculada)
             self.ejey.append(cota_este)
         print("Cotas...")
         print("Nombre...", "Cota...")
         for i in self.todos:
-            print(i)
+            print([round(elem, 6) if isinstance(elem, float) else elem for elem in i])
         print("*" * 28)
         plt.plot(self.ejex, self.ejey, ":", color="b")
         plt.xlabel("Distancia En M")
@@ -50,8 +50,8 @@ class NivelacionGeodesica:
         n_est = int(input("Inserta El Numero De Estaciones: "))
         pt1 = input("Inserta El Nombre De La Estacion:")
         dist_e1 = 0
-        vista_mas1 = float(input("V+: "))
-        cota_ini = float(input("Inserta La Cota De La Estacion:"))
+        vista_mas1 = round(float(input("V+: ")), 6)
+        cota_ini = round(float(input("Inserta La Cota De La Estacion:")), 6)
         self.todos = [[pt1, cota_ini]]
         self.ejex = [dist_e1]
         self.ejey = [cota_ini]
@@ -62,37 +62,37 @@ class NivelacionGeodesica:
                 num_vi = int(input("¿Cuantas Tienes?: "))
                 for _ in range(num_vi):
                     vi_nombre = input("Inserta El Nombre De La VI: ")
-                    vi_valor = float(input("Inserta el valor de VI: "))
-                    sube_o_baja = vista_mas1 - vi_valor
+                    vi_valor = round(float(input("Inserta el valor de VI: ")), 6)
+                    sube_o_baja = round(vista_mas1 - vi_valor, 6)
                     if sube_o_baja < 0:
-                        cota_vi = cota_ini - abs(sube_o_baja)
+                        cota_vi = round(cota_ini - abs(sube_o_baja), 6)
                         if sube_o_baja > 0:
-                            cota_vi = cota_ini + abs(sube_o_baja)
-                        self.todos.append([vi_nombre, sube_o_baja, cota_vi])
+                            cota_vi = round(cota_ini + abs(sube_o_baja), 6)
+                        self.todos.append([vi_nombre, round(sube_o_baja, 6), cota_vi])
                     else:
-                        self.todos.append([vi_nombre, sube_o_baja])
+                        self.todos.append([vi_nombre, round(sube_o_baja, 6), cota_ini])
             estacion = input("Inserta El Nombre De La Estacion: ")
-            vista_mas = float(input("V+: "))
-            vista_menos = float(input("V-: "))
-            sube_o_baja = vista_mas1 - vista_menos
-            vista_mas1 = vista_mas
+            vista_mas = round(float(input("V+: ")), 6)
+            vista_menos = round(float(input("V-: ")), 6)
+            sube_o_baja = round(vista_mas1 - vista_menos, 6)
+            vista_mas1 = round(vista_mas, 6)
             if sube_o_baja < 0:
-                cota_este = cota_ini - abs(sube_o_baja)
+                cota_este = round(cota_ini - abs(sube_o_baja), 6)
                 self.ejey.append(cota_este)
-                cota_ini = cota_este
+                cota_ini = round(cota_este, 6)
                 self.todos.append([estacion, cota_este])
             if sube_o_baja > 0:
-                cota_este = cota_ini + abs(sube_o_baja)
+                cota_este = round(cota_ini + abs(sube_o_baja), 6)
                 self.ejey.append(cota_este)
-                cota_ini = cota_este
-                self.todos.append([estacion, sube_o_baja, cota_este])
-            distancia = float(input("Inserte la Distancia entre estas dos estaciones: "))
-            calculada = distancia + self.ejex[-1]
+                cota_ini = round(cota_este, 6)
+                self.todos.append([estacion, round(sube_o_baja, 6), cota_este])
+            distancia = round(float(input("Inserte la Distancia entre estas dos estaciones: ")), 6)
+            calculada = round(distancia + self.ejex[-1], 6)
             self.ejex.append(calculada)
         print("Cotas...")
         print("Nombre...", "Cota...")
         for i in self.todos:
-            print(i)
+            print([round(elem, 6) if isinstance(elem, float) else elem for elem in i])
         print("*" * 28)
         plt.plot(self.ejex, self.ejey, ":", color="b")
         plt.show()
