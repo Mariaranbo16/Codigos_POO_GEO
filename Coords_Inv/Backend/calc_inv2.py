@@ -1,6 +1,6 @@
 from calc_inv1 import Inverso1
 from elipsoides import Elipsoides
-from angulos import Angulos
+from Codigos_POO_GEO.Coords_Inv.Backend.angulos import Angulos
 import math as mh
 
 ang = Angulos()
