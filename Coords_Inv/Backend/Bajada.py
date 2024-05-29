@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 
 class NivelacionDiferencialGeodesica:
+    # Atributos
     def __init__(self):
-        self.todos = []
+        self.todos = []   # Almacena toda la info total
         self.ejex = []
         self.ejey = []
 

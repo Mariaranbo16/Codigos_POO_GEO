@@ -91,12 +91,18 @@ body {
 
 .main-content h1 {
     font-size: 2.5em; /* Aumenta el tamaño del texto */
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     text-align: center;
 }
-
-.main-content .geoide-img {
+.main-content .globe-icon {
+    font-size: 200px; /* Ajusta el tamaño del ícono aquí */
+    color: #000000; /* Cambia el color del ícono si es necesario */
+    margin-bottom: 50px;
+}
+.main-content .name {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-top: 40px;
+    text-align: center;
 }
