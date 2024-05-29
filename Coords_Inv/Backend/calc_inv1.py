@@ -1,3 +1,4 @@
+# Convirtiendo coordenadas cartesianas a geográficas para la precisión en la altitud y altura en el elipsoide
 from elipsoides import Elipsoides
 from angulos import Angulos
 

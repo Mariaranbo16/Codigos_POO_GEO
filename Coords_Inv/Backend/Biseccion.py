@@ -1,7 +1,10 @@
+# A partir de dos coordenadas hallar la tercera: Bisección
 import math
 import matplotlib.pyplot as plt
 
+# Definimos la clase
 class BisectionProgram:
+    # Inicialización del objeto por los atributos.
     def __init__(self):
         print("Programa Bisección - Cálculos de Np y Ep mediante el método no exacto")
         self.NA = float(input("Ingrese Norte de A: "))
@@ -17,6 +20,7 @@ class BisectionProgram:
         self.bethaS = float(input("Ingresa los Segundos de la β: "))
         self.bethaD = float(self.bethaG + (self.bethaM / 60) + (self.bethaS / 3600))
 
+    # Calculando la distancia de A a B
     def calculate_bisection(self):
         print("Programa Bisección - Cálculos de Np y Ep mediante el método no exacto")
         if self.NB == self.NA:
@@ -26,6 +30,7 @@ class BisectionProgram:
         else:
             AB = math.sqrt((self.NB - self.NA) ** 2 + (self.EB - self.EA) ** 2)
         alpbet = self.alphaD + self.bethaD
+        # Cálculo de ángulos totales
         AP = (AB * math.sin(math.radians(self.bethaD))) / math.sin(math.radians(alpbet))
         if self.NB == self.NA:
             alphaAB = 0
@@ -89,7 +94,9 @@ class BisectionProgram:
             print("Ep = ", EsteP)
 
         # Gráfico de la bisección
+        # Coordenadas Este
         Ejex = [self.EA, self.EB, EsteP, self.EA]
+        # Coordenadas Norte 
         Ejey = [self.NA, self.NB, NorteP, self.NA]
 
         plt.annotate("A", xy=(self.EA, self.NA))

@@ -1,3 +1,4 @@
+# Se encarga de calcular diferentes tipos de coordenadas geodesicas a geocentricas ya reducidas. 
 import math as mh
 from angulos import Angulos
 from elipsoides import Elipsoides
