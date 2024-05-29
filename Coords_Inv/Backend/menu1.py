@@ -1,5 +1,5 @@
 from coords import Coords_XYZ
-from Codigos_POO_GEO.Coords_Inv.Backend.Latitudes import Latitudes
+from Latitudes import Latitudes
 from calc_inv1 import Inverso1
 from calc_inv2 import Inverso2
 from calc_inv3 import Inverso3

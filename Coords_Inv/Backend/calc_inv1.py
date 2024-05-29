@@ -1,5 +1,5 @@
 from elipsoides import Elipsoides
-from Codigos_POO_GEO.Coords_Inv.Backend.angulos import Angulos
+from angulos import Angulos
 
 import math as mh
 
